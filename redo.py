@@ -103,18 +103,6 @@ def plot_clients_per_region(df, start_date, end_date):
     return fig
 
 
-
-# def plot_sales_per_region(df):
-#     df = df.groupby('customer_state')['order_total'].sum().reset_index()
-#     df = client_count_region(df)
-#     fig = plt.figure(figsize=(16,9))
-#     plt.style.use("ggplot")
-#     plt.bar(x = df["region"], height = df["order_total"], width = 0.8)
-#     plt.xlabel("Region")
-#     plt.ylabel("Sales")
-#     plt.grid(True, which='both', linestyle='--', linewidth=0.5)
-#     return fig
-
 def plot_amount_of_orders_per_region(df):
     fig = plt.figure(figsize=(16,9))
     plt.style.use("ggplot")
@@ -130,8 +118,8 @@ def main_page():
     st.write("## General Overview")
     st.write("This page contains general insights about this Ecommerce.")
     st.markdown('---')
-    customers_df = pd.read_csv("./real_data/Customers_data_registered.csv", dtype = {'customer_zip_code_prefix': str})
-    orders_df = pd.read_csv("./real_data/Orders_data.csv")
+    customers_df = pd.read_csv("./data/Customers_data_registered.csv", dtype = {'customer_zip_code_prefix': str})
+    orders_df = pd.read_csv("./data/Orders_data.csv")
 
     customers_df['register_date'] = pd.to_datetime(customers_df['register_date'])
 
